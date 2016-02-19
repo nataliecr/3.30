@@ -15,7 +15,20 @@ public class CurrentTime {
         long totalHours = totalMinutes / 60;
         long currentHour = totalHours % 24;
         
-        System.out.println("Current time is " + currentHour + 
-                ":" + currentMinute + ":" + currentSecond + " GMT");
+        if (currentHour >= 13){
+            currentHour = currentHour - 12;
+        }
+        
+        if (currentHour == 0){
+            currentHour = currentHour + 12;
+        }
+        
+        System.out.print("Current time is " + currentHour + 
+                ":" + currentMinute + ":" + currentSecond);
+        
+        if (currentHour < 12)
+            System.out.println(" AM");
+        else
+            System.out.println(" PM");
     } // main
 } // CurrentTime
